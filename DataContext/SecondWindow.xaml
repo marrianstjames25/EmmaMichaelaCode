@@ -1,0 +1,30 @@
+﻿<Window x:Class="DataContext.SecondWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DataContext"
+        mc:Ignorable="d"
+        Title="SecondWindow" Height="450" Width="800" Loaded="Window_Loaded">
+    <Window.Resources>
+        <local:Sign_Up_DetailsDataSet x:Key="sign_Up_DetailsDataSet"/>
+        <CollectionViewSource x:Key="sign_up_tableViewSource" Source="{Binding Sign_up_table, Source={StaticResource sign_Up_DetailsDataSet}}"/>
+    </Window.Resources>
+    <Grid>
+        <Grid x:Name="grid1" DataContext="{StaticResource sign_up_tableViewSource}" HorizontalAlignment="Left" Margin="312,159,0,0" VerticalAlignment="Top">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Label Content="Username:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center"/>
+            <Label Content="Pass:" Grid.Column="0" Margin="3,66,3,-60" Grid.Row="0" VerticalAlignment="Center"/>
+
+        </Grid>
+        <TextBlock Foreground="Black" x:Name="txtblock_1" HorizontalAlignment="Left" Margin="406,167,0,0" TextWrapping="Wrap"  VerticalAlignment="Top"/>
+        <TextBlock  Foreground="Black" x:Name="txtblock_2" HorizontalAlignment="Left" Margin="406,232,0,0" TextWrapping="Wrap"  VerticalAlignment="Top"/>
+
+    </Grid>
+</Window>
